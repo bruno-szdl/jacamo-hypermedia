@@ -63,6 +63,14 @@ public class ThingArtifact extends Artifact {
         defineObsProperty("securityScheme", scheme.getSchemeType());
       }
 
+      for (ActionAffordance actionType : td.getSupportedActionTypes())) {
+        defineObsProperty("hasAction", actionType);
+      }
+      
+      for (ActionAffordance type : td.getSemanticTypes())) {
+        defineObsProperty("isOfType", type);
+      }
+
       exposeWebSubIRIs(url);
     } catch (IOException e) {
       failed(e.getMessage());
