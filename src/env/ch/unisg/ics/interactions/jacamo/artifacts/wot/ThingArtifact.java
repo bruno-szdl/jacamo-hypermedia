@@ -64,14 +64,12 @@ public class ThingArtifact extends Artifact {
       }
 
       for (String actionType : td.getSupportedActionTypes()) {
-        String splitAction = actionType.split("#");
-        String[] actionProperty = [splitAction[0], splitAction[1]];
+        String[] actionProperty = actionType.split("#");
         defineObsProperty("hasAction", actionProperty);
       }
       
       for (String type : td.getSemanticTypes()) {
-        String splitType = type.split("#");
-        String[] typeProperty = [splitType[0], splitType[1]];
+        String[] typeProperty = type.split("#");
         defineObsProperty("isOfType", typeProperty);
       }
 
