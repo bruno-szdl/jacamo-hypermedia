@@ -63,13 +63,13 @@ public class ThingArtifact extends Artifact {
         defineObsProperty("securityScheme", scheme.getSchemeType());
       }
 
-      for (ActionAffordance actionType : td.getSupportedActionTypes())) {
-        defineObsProperty("hasAction", actionType);
-      }
+      // for (String actionType : td.getSupportedActionTypes()) {
+      //   defineObsProperty("hasAction", actionType);
+      // }
       
-      for (ActionAffordance type : td.getSemanticTypes())) {
-        defineObsProperty("isOfType", type);
-      }
+      // for (String type : td.getSemanticTypes()) {
+      //   defineObsProperty("isOfType", type);
+      // }
 
       exposeWebSubIRIs(url);
     } catch (IOException e) {
