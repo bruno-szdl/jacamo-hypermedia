@@ -64,13 +64,13 @@ public class ThingArtifact extends Artifact {
       }
 
       for (String actionType : td.getSupportedActionTypes()) {
-        String[] actionProperty = actionType.split("#");
-        defineObsProperty("hasAction", actionProperty);
+         String[] actionOntology = actionType.split("#");
+         defineObsProperty("hasAction", actionOntology);
       }
-      
+
       for (String type : td.getSemanticTypes()) {
-        String[] typeProperty = type.split("#");
-        defineObsProperty("isOfType", typeProperty);
+        String[] typeOntology = type.split("#");
+        defineObsProperty("isOfType", typeOntology);
       }
 
       exposeWebSubIRIs(url);
