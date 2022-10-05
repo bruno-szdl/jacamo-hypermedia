@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.core5.http.Header;
@@ -70,7 +71,7 @@ public class ThingArtifact extends Artifact {
       
       for (ActionAffordance action : td.getActions()) {
          String datatype = action.getInputSchema().get().getDatatype();
-         Set<String> semanticTypes = action.getInputSchema().get().getInputSchema();
+         Set<String> semanticTypes = action.getInputSchema().get().getSemanticTypes();
          Set<String> enumeration = action.getInputSchema().get().getEnumeration();
          Optional<String> contentMediaType = action.getInputSchema().get().getContentMediaType();
          defineObsProperty("hasInputSchema", datatype);
