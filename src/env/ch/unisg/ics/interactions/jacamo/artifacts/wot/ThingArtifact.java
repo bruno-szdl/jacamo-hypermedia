@@ -69,7 +69,7 @@ public class ThingArtifact extends Artifact {
       }
       
       for (ActionAffordance action : td.actions) {
-         defineObsProperty("hasInputSchema", action.get().getInputSchema());
+         defineObsProperty("hasInputSchema", action.getInputSchema());
       }
 
       for (String type : td.getSemanticTypes()) {
