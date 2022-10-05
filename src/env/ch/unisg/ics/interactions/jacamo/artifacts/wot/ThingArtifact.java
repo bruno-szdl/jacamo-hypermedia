@@ -70,7 +70,7 @@ public class ThingArtifact extends Artifact {
       }
       
       for (ActionAffordance action : td.getActions()) {
-         if (action.getInputSchema().get().getDatatype().isPresent()) {
+         if (action.getInputSchema().isPresent()) {
              String datatype = action.getInputSchema().get().getDatatype();
              defineObsProperty("hasInputSchema", datatype);
          }
