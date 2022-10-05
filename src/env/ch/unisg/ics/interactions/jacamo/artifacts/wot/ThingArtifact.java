@@ -66,6 +66,9 @@ public class ThingArtifact extends Artifact {
       for (String actionType : td.getSupportedActionTypes()) {
          String[] actionOntology = actionType.split("#");
          defineObsProperty("hasAction", actionOntology);
+      }
+      
+      for (ActionAffordance action : td.actions) {
          defineObsProperty("hasInputSchema", action.get().getInputSchema());
       }
 
