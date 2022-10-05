@@ -72,7 +72,7 @@ public class ThingArtifact extends Artifact {
          String datatype = action.getInputSchema().getDatatype();
          Set<String> semanticTypes = action.getInputSchema().getInputSchema();
          Set<String> enumeration = action.getInputSchema().getEnumeration();
-         Optional<String> contentMediaType = action.getInputSchema().getContentMediaType()
+         Optional<String> contentMediaType = action.getInputSchema().getContentMediaType();
          defineObsProperty("hasInputSchema", datatype);
       }
 
