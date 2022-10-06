@@ -73,6 +73,7 @@ public class ThingArtifact extends Artifact {
          if (action.getInputSchema().isPresent()) {
              String datatype = action.getInputSchema().get().getDatatype();
              defineObsProperty("hasInputSchema", datatype);
+             System.out.println(datatype);
          }
            
          //Set<String> semanticTypes = action.getInputSchema().get().getSemanticTypes();
