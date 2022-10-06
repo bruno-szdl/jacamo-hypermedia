@@ -72,8 +72,13 @@ public class ThingArtifact extends Artifact {
       for (ActionAffordance action : td.getActions()) {
          if (action.getInputSchema().isPresent()) {
              String datatype = action.getInputSchema().get().getSemanticTypes().toString();
-             defineObsProperty("hasInputSchema", datatype);
+             defineObsProperty("hasDataType", datatype);
              System.out.println(datatype);
+         }
+        if (action.getInputSchema().isPresent()) {
+             String enumeration = action.getInputSchema().get().getEnumeration().toString();
+             defineObsProperty("hasEnumeration", enumeration);
+             System.out.println(enumeration);
          }
            
          //Set<String> semanticTypes = action.getInputSchema().get().getSemanticTypes();
