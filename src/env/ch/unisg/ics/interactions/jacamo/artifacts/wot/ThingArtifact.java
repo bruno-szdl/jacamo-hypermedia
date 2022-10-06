@@ -69,27 +69,23 @@ public class ThingArtifact extends Artifact {
          defineObsProperty("hasAction", actionOntology);
       }
       
-      for (ActionAffordance action : td.getActions()) {
-         if (action.getInputSchema().isPresent()) {
-             String datatype = action.getInputSchema().get().getSemanticTypes().toString();
-             defineObsProperty("hasDataType", datatype);
-             System.out.println(datatype);
-         }
-        if (action.getInputSchema().isPresent()) {
-            List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
-            System.out.println(schemas);
-            List<String> schemasStr = new ArrayList<>();
-            for (DataSchema schema : schemas) {
-             schemasStr.add(schema.getSemanticTypes().toString());
-            }
-            defineObsProperty("hasSchemas", schemasStr);
-            System.out.println(schemasStr);
-        }
-           
-         //Set<String> semanticTypes = action.getInputSchema().get().getSemanticTypes();
-         //Set<String> enumeration = action.getInputSchema().get().getEnumeration();
-         //Optional<String> contentMediaType = action.getInputSchema().get().getContentMediaType();
-      }
+      //for (ActionAffordance action : td.getActions()) {
+      //   if (action.getInputSchema().isPresent()) {
+      //       String datatype = action.getInputSchema().get().getSemanticTypes().toString();
+      //       defineObsProperty("hasDataType", datatype);
+      //       System.out.println(datatype);
+      //   }
+      //  if (action.getInputSchema().isPresent()) {
+      //      List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
+      //      System.out.println(schemas);
+      //      List<String> schemasStr = new ArrayList<>();
+      //      for (DataSchema schema : schemas) {
+      //          schemasStr.add(schema.getSemanticTypes().toString());
+      //      }
+      //      defineObsProperty("hasSchemas", schemasStr);
+      //      System.out.println(schemasStr);
+      //  }
+      //}
 
       for (String type : td.getSemanticTypes()) {
         String[] typeOntology = type.split("#");
