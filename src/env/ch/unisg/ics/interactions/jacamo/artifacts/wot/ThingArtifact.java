@@ -76,14 +76,14 @@ public class ThingArtifact extends Artifact {
              System.out.println(datatype);
          }
         if (action.getInputSchema().isPresent()) {
-             List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
-             List<String> schemasStr;
-             for (DataSchema schema : schemas) {
-               schemasStr.add(schema.getSemanticTypes().toString();
-             }
-             defineObsProperty("hasSchemas", schemasStr);
-             System.out.println(schemasStr);
-         }
+            List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
+            List<String> schemasStr = new ArrayList<>();
+            for (DataSchema schema : schemas) {
+             schemasStr.add(schema.getSemanticTypes().toString());
+            }
+            defineObsProperty("hasSchemas", schemasStr);
+            System.out.println(schemasStr);
+        }
            
          //Set<String> semanticTypes = action.getInputSchema().get().getSemanticTypes();
          //Set<String> enumeration = action.getInputSchema().get().getEnumeration();
