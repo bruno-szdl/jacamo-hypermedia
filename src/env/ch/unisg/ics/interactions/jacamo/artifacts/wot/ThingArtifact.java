@@ -77,6 +77,7 @@ public class ThingArtifact extends Artifact {
          }
         if (action.getUriVariables().isPresent()) {
              String enumeration = action.getUriVariables().get().toString();
+             defineObsProperty("hasEnumeration", enumeration);
              System.out.println(enumeration);
          }
            
