@@ -77,6 +77,7 @@ public class ThingArtifact extends Artifact {
          }
         if (action.getInputSchema().isPresent()) {
             List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
+            System.out.println(schemas);
             List<String> schemasStr = new ArrayList<>();
             for (DataSchema schema : schemas) {
              schemasStr.add(schema.getSemanticTypes().toString());
