@@ -76,7 +76,7 @@ public class ThingArtifact extends Artifact {
              System.out.println(datatype);
          }
         if (action.getInputSchema().isPresent()) {
-             String enumeration = action.getInputSchema().stream().toString();
+             String enumeration = action.getInputSchema().toString();
              System.out.println(enumeration);
          }
            
