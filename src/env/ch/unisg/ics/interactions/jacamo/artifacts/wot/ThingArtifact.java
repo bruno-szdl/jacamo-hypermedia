@@ -76,8 +76,7 @@ public class ThingArtifact extends Artifact {
              System.out.println(datatype);
          }
         if (action.getInputSchema().isPresent()) {
-             String enumeration = action.getInputSchema().get().getEnumeration().toString();
-             defineObsProperty("hasEnumeration", enumeration);
+             String enumeration = action.getInputSchema().stream().toString();
              System.out.println(enumeration);
          }
            
