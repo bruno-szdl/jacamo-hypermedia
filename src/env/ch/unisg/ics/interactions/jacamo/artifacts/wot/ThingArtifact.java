@@ -75,8 +75,8 @@ public class ThingArtifact extends Artifact {
              defineObsProperty("hasDataType", datatype);
              System.out.println(datatype);
          }
-        if (action.getInputSchema().isPresent()) {
-             String enumeration = action.getInputSchema().get().getContentMediaType().toString();
+        if (action.getUriVariables().isPresent()) {
+             String enumeration = action.getUriVariables().get().toString();
              System.out.println(enumeration);
          }
            
