@@ -65,27 +65,22 @@ public class ThingArtifact extends Artifact {
       }
 
       for (String actionType : td.getSupportedActionTypes()) {
-         String[] actionOntology = actionType.split("#");
-         defineObsProperty("hasAction", actionOntology);
+        String[] actionOntology = actionType.split("#");
+        defineObsProperty("hasAction", actionOntology);
       }
       
-      //for (ActionAffordance action : td.getActions()) {
-      //   if (action.getInputSchema().isPresent()) {
-      //       String datatype = action.getInputSchema().get().getSemanticTypes().toString();
-      //       defineObsProperty("hasDataType", datatype);
-      //       System.out.println(datatype);
-      //   }
-      //  if (action.getInputSchema().isPresent()) {
-      //      List<DataSchema> schemas = action.getInputSchema().get().getValidSchemas();
-      //      System.out.println(schemas);
-      //      List<String> schemasStr = new ArrayList<>();
-      //      for (DataSchema schema : schemas) {
-      //          schemasStr.add(schema.getSemanticTypes().toString());
-      //      }
-      //      defineObsProperty("hasSchemas", schemasStr);
-      //      System.out.println(schemasStr);
-      //  }
-      //}
+      for (ActionAffordance action : td.getActions()) {
+        if (action.getInputSchema().isPresent()) {
+          List<DataSchema> data_schemas = action.getInputSchema().get().getValidSchemas();
+          for (DataSchema data_schema : data_schemas) {
+            ObjectSchema object_schema = (ObjectSchema) data_schema;
+            List<String> required_properties = object_schema.getRequiredProperties();
+            for (String required_property : required_properties) {
+              defineObsProperty("hasRequiredProperty", required_property);
+            }
+          }
+        }
+      }
 
       for (String type : td.getSemanticTypes()) {
         String[] typeOntology = type.split("#");
