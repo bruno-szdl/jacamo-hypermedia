@@ -71,19 +71,15 @@ public class ThingArtifact extends Artifact {
       
       for (ActionAffordance action : td.getActions()) {
         if (action.getInputSchema().isPresent()) {
-          List<DataSchema> data_schemas = action.getInputSchema().get().getValidSchemas();
           System.out.println("Entered action");
-          for (DataSchema data_schema : data_schemas) {
-            System.out.println(data_schema);
-            ObjectSchema object_schema = (ObjectSchema) data_schema;
-            List<String> required_properties = object_schema.getRequiredProperties();
-            for (String required_property : required_properties) {
-              System.out.println(required_property);
-              defineObsProperty("hasRequiredProperty", required_property);
+          ObjectSchema object_schema = (ObjectSchema) action.getInputSchema().get();
+          List<String> required_properties = object_schema.getRequiredProperties();
+          for (String required_property : required_properties) {
+            System.out.println(required_property);
+            defineObsProperty("hasRequiredProperty", required_property);
             }
           }
         }
-      }
 
       for (String type : td.getSemanticTypes()) {
         String[] typeOntology = type.split("#");
