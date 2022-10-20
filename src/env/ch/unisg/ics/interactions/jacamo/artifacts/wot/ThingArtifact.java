@@ -77,9 +77,14 @@ public class ThingArtifact extends Artifact {
           for (String required_property : required_properties) {
             System.out.println(required_property);
             defineObsProperty("hasRequiredProperty", required_property);
-            }
+          }
+          Map<String, DataSchema> properties = object_schema.getProperties();
+          for (Map.Entry<String, DataSchema> entry : properties.entrySet()) {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+            defineObsProperty("hasProperty", entry.getKey(), entry.getValue());
           }
         }
+      }
 
       for (String type : td.getSemanticTypes()) {
         String[] typeOntology = type.split("#");
