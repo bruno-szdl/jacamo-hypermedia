@@ -80,8 +80,8 @@ public class ThingArtifact extends Artifact {
           }
           Map<String, DataSchema> properties = object_schema.getProperties();
           for (Map.Entry<String, DataSchema> entry : properties.entrySet()) {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-            defineObsProperty("hasProperty", entry.getKey(), entry.getValue());
+            System.out.println(entry.getKey() + "/" + entry.getValue().getDatatype());
+            defineObsProperty("hasProperty", entry.getKey(), entry.getValue().getDatatype());
           }
         }
       }
