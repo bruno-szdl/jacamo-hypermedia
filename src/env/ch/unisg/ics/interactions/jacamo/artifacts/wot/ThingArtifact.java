@@ -65,7 +65,7 @@ public class ThingArtifact extends Artifact {
       }
 
       for (String actionType : td.getSupportedActionTypes()) {
-        String[] actionOntology = actionType;
+        String actionOntology = actionType;
         defineObsProperty("hasAction", actionOntology);
       }
       
@@ -87,7 +87,7 @@ public class ThingArtifact extends Artifact {
       }
 
       for (String type : td.getSemanticTypes()) {
-        String[] typeOntology = type;
+        String typeOntology = type;
         defineObsProperty("isOfType", typeOntology);
       }
 
