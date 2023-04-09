@@ -71,16 +71,13 @@ public class ThingArtifact extends Artifact {
       
       for (ActionAffordance action : td.getActions()) {
         if (action.getInputSchema().isPresent()) {
-          System.out.println("Entered action");
           ObjectSchema object_schema = (ObjectSchema) action.getInputSchema().get();
           List<String> required_properties = object_schema.getRequiredProperties();
           for (String required_property : required_properties) {
-            System.out.println(required_property);
             defineObsProperty("hasRequiredProperty", required_property);
           }
           Map<String, DataSchema> properties = object_schema.getProperties();
           for (Map.Entry<String, DataSchema> entry : properties.entrySet()) {
-            System.out.println(entry.getKey() + "/" + entry.getValue().getDatatype());
             defineObsProperty("hasProperty", entry.getKey(), entry.getValue().getDatatype());
           }
         }
